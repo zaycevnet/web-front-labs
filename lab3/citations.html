@@ -7,28 +7,52 @@
     <link rel="stylesheet" href="../main.css">
     <style>
         .citation {
-            border: 1px solid red;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px;
-            box-shadow: 10px 10px 5px #0002;
-            background: linear-gradient(to right top, red, orange, yellow, green, cyan, blue, purple );
+            padding: 20px; /* Внутренние отступы для каждой цитаты */
+            border-radius: 5px; /* Скруглённые углы для блоков цитат */
+            margin: 20px auto; /* Внешние отступы и автоцентровка по горизонтали */
+            max-width: 600px; /* Максимальная ширина блока */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Тень блока */
+            background: #f9f9f9; /* Базовый цвет фона для блоков */
+            text-align: center; /* Выравнивание текста по центру */
+        }
+        /* Использование псевдоклассов для стилизации блоков цитат по-разному, в зависимости от их порядкового номера:
+        :nth-child(2n) применяется к каждому второму элементу, :nth-child(3n) — к каждому третьему и так далее. */
+        .citation:nth-child(2n) {
+            background: linear-gradient(to bottom, #FFD194, #D1913C); /* Градиентный фон для чётных цитат */
+            color: #fff; /* Цвет текста */
+        }
+        .citation:nth-child(2n+1) {
+            background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Градиентный фон для нечётных цитат */
+            color: #fff;
+        }
+        .citation:nth-child(3n) {
+            background: linear-gradient(to right top, #f77062, #fe5196); /* Особый градиент для каждой третьей цитаты */
+            color: #fff;
+        }
+        .citation:nth-child(4n) {
+            background: linear-gradient(to right, #8e9eab, #eef2f3); /* Особый градиент для каждой четвёртой цитаты */
+            color: #333; /* Цвет текста */
+        }
+        .citation:nth-child(5n) {
+            background: linear-gradient(to top, #50cc7f, #f5d100); /* Особый градиент для каждой пятой цитаты */
+            color: #fff;
         }
         .text {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
+            font-size: 24px; 
+            margin: 15px 0; /* Отступы */
+            font-weight: bold; /* Жирное начертание */
         }
         .author {
-            text-align: left;
-            font-size: 30px;
-            opacity: 0.8;
-            margin-top: 30px;
-            margin-left: 50%;
+            font-size: 20px; /* Размер шрифта для автора */
+            opacity: 0.8; /* Прозрачность текста */
         }
     </style>
 </head>
 <body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 3
+    </header>
+    
     <main>
         <div class="citation">
             <div class="text">
@@ -38,7 +62,55 @@
             Альберт Эйнштейн
         </div>
     </div>
+    <div class="citation">
+        <div class="text">Воображение важнее знаний.</div>
+        <div class="author">— Альберт Эйнштейн</div>
+    </div>
+    <div class="citation">
+        <div class="text">Что мы знаем, это капля; что мы не знаем, это океан.</div>
+        <div class="author">— Исаак Ньютон</div>
+    </div>
+    <div class="citation">
+        <div class="text">Быть счастливым значит быть свободным.</div>
+        <div class="author">— Лев Толстой</div>
+    </div>
+    <div class="citation">
+        <div class="text">Жизнь — это то, что с тобой происходит, пока ты строишь планы.</div>
+        <div class="author">— Джон Леннон</div>
+    </div>
+    <div class="citation">
+        <div class="text">Успех — это способность переходить от одного неудачи к другому без потери энтузиазма.</div>
+        <div class="author">— Уинстон Черчилль</div>
+    </div>
+    <div class="citation">
+        <div class="text">Лучшая месть — огромный успех.</div>
+        <div class="author">— Фрэнк Синатра</div>
+    </div>
+    <div class="citation">
+        <div class="text">Мы становимся тем, о чем мы думаем.</div>
+        <div class="author">— Эрл Найтингейл</div>
+    </div>
+    <div class="citation">
+        <div class="text">Единственный способ сделать отличную работу — любить то, что вы делаете.</div>
+        <div class="author">— Стив Джобс</div>
+    </div>
+    <div class="citation">
+        <div class="text">Не бойтесь жизни. Поверьте, что жизнь стоит того, чтобы жить, и ваша вера поможет создать факт.</div>
+        <div class="author">— Уильям Джеймс</div>
+    </div>
+    <div class="citation">
+        <div class="text">Смелость — это не отсутствие страха, а понимание, что что-то другое важнее страха.</div>
+        <div class="author">— Эмброуз Редмун</div>
+    </div>
+    <div class="citation">
+        <div class="text">Секрет успеха в том, чтобы быть готовым к удаче, когда она приходит.</div>
+        <div class="author">— Бенджамин Дизраэли</div>
+    </div>
 
     </main>
+
+    <footer>
+        &copy; 010595140 (6 в списке группы ФБИ-21), ФБИ-21, 2 курс, 2024
+    </footer>
 </body>
 </html>
