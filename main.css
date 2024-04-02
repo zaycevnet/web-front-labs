@@ -4,10 +4,26 @@ body {
     font-family: Arial;
     margin: 0px;
 }
+
+footer {
+    background-color: black;
+    color: lightgreen;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
 a {
     color: green;
     text-decoration: none;
     transition: 1s 2s;
+}
+
+main {
+    margin: 10px 20px 45px; /* 45 нижний отступ main*/
 }
 
 a:link {
