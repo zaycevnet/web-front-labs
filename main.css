@@ -4,3 +4,27 @@ body {
     font-family: Arial;
     margin: 0px;
 }
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:link {
+    color: brown;
+    text-decoration: underline;
+}
+a:visited {
+    color: peru;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+a:active {
+    color: rgb(172, 171, 189);
+    opacity: 0.3;
+}
+
