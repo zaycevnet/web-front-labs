@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+    <style>
+        .image-container {
+          position: relative;
+          width: 500px; /* ширина картинки */
+          height: 300px; /* высота картинки */
+        }
+      
+        .image-container img {
+          width: 100%;
+          height: auto;
+        }
+      
+        .cloud, .cloud-text {
+          position: absolute;
+          width: 100px; 
+          height: 50px; 
+          background-color: white;
+          border: 2px solid black;
+          border-radius: 50%;
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+      
+        .cloud-text {
+          width: 150px; 
+          height: 70px; 
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+      
+        .image-container:hover .cloud,
+        .image-container:hover .cloud-text {
+          opacity: 1;
+        }
+      
+        /* для появления облачков по очереди */
+        .image-container:hover .cloud:nth-child(2) { transition-delay: 0.5s; }
+        .image-container:hover .cloud:nth-child(3) { transition-delay: 1s; }
+        .image-container:hover .cloud:nth-child(4) { transition-delay: 1.5s; }
+        .image-container:hover .cloud-text { transition-delay: 2s; }
+      </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img src="../dcc5e235-30db-4d0f-ab73-d611f25322b6.jpeg" alt="Хацкер">
+            <div class="cloud" style="left: 400px; top: 400px;"></div>
+            <div class="cloud" style="left: 450px; top: 450px;"></div>
+            <div class="cloud" style="left: 500px; top: 500px;"></div>
+            <div class="cloud cloud-text" style="left: 550px; top: 550px;">Я тебя хацкну..</div>
+          </div>
+    </main>
+    
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
