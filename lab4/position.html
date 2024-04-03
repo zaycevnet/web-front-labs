@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+    <style>
+        /* Стили для всех div внутри main, устанавливаем z-index выше, чем у .position-relative по умолчанию */
+main div {
+    width: 300px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: whitesmoke;
+    border: 1px dotted #000;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1; /* Базовый z-index для статических блоков */
+}
+
+/* Стили для .position-relative, изначально будет ниже статических блоков */
+.position-relative {
+    position: relative;
+    left: 140px;
+    top: -131px;
+    z-index: 0; /* Изначально ниже статических блоков */
+}
+
+/* При наведении .position-relative всплывает поверх статических блоков */
+.position-relative:hover {
+    z-index: 2; /* Должно быть выше, чем у статических блоков */
+}
+
+/* Стили для .position-absolute и его изменения при наведении */
+.position-absolute {
+    position: absolute;
+    left: 300px;
+    z-index: 3; /* Устанавливаем выше, чем у других блоков, чтобы не конфликтовал с .position-relative */
+}
+
+div.position-absolute:hover {
+    width: 350px;
+    height: 90px;
+    background-color: rgb(230, 201, 173);
+    box-shadow: 0 0 10px black;
+}
+
+footer {
+    position: bottom; /* для удержания в нижней части страницы */
+    z-index: 10;
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+       <div>static</div>
+       <div>static</div> 
+       <div class="position-relative">relative</div> 
+       <div>static</div> 
+       <div>static</div> 
+       <div class="position-absolute">absolute</div> 
+       <div>static</div> 
+       <div>static</div> 
+       <div>static</div> 
+       <div>static</div>  
+    </main>
+    
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
