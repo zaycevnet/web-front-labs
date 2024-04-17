@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+  <style>
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.5s ease; /* для плавной анимации */
+      margin: 10px;
+      position: absolute;
+      left: calc(10% + 80% * var(--rand-x));
+      top: calc(10% + 80% * var(--rand-y));
+    }
+
+    /* Эти свойства используют функцию CSS calc() для динамического вычисления левого и верхнего положения каждого круга на основе пользовательских 
+    свойств --rand-x и --rand-y. Формула гарантирует, что круги будут расположены в пределах 80% ширины и высоты контейнера по центру, начиная со смещения на 10% от краев. 
+    Это предотвращает размещение кругов слишком близко к краю контейнера. */
+  </style>
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <div class="circle" style="--rand-x: 0.1; --rand-y: 0.2;" >1</div>
+    <div class="circle" style="--rand-x: 0.5; --rand-y: 0.4;">2</div>
+    <div class="circle" style="--rand-x: 0.9; --rand-y: 0.6;">3</div>
+    <div class="circle" style="--rand-x: 0.3; --rand-y: 0.8;">4</div>
+    <div class="circle" style="--rand-x: 0.7; --rand-y: 0.1;">5</div>
+    <div class="circle" style="--rand-x: 0.2; --rand-y: 0.5;">6</div>
+    <div class="circle" style="--rand-x: 0.6; --rand-y: 0.1;">7</div>
+    <div class="circle" style="--rand-x: 0.4; --rand-y: 0.3;">8</div>
+    <div class="circle" style="--rand-x: 0.8; --rand-y: 0.7;">9</div>
+    <div class="circle" style="--rand-x: 0.9; --rand-y: 0.7;">10</div>
+  </main>
+
+  <footer style= "cursor: pointer"; ondblclick="showforfooter()">
+    &copy; 010595140, ФБИ-21, 2 курс, 2024
+</footer>
+
+
+<script>
+    const circles = document.querySelectorAll('.circle'); // Получаем все элементы с классом 'circle' на странице
+
+    circles.forEach(circle => {  // Для каждого элемента 'circle' в коллекции выполняем функцию
+      circle.addEventListener('click', () => { // обработчик события 'click' к каждому кругу
+        circle.style.opacity = 0; //непрозрачность элемента в 0, делая его невидимым
+        circle.style.transform = 'scale(0)'; //трансформация масштаба, уменьшая элемент до нулевого размера
+        setTimeout(() => circle.style.display = 'none', 500); // Через 500 мс после клика  свойство display в 'none', полностью скрывая элемент
+      });
+    });
+  </script>
+
+<!--
+    circles: Переменная, содержащая NodeList всех найденных элементов с классом circle.
+    forEach: Метод, который позволяет выполнить функцию один раз для каждого элемента в массиве
+    circle => {...}: Стрелочная функция, используемая как коллбэк в forEach. 
+    circle является текущим элементом массива (NodeList), над которым выполняется функция. -->
+
+</body>
+</html>
