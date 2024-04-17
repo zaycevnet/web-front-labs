@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+
+  <style>
+    .header {
+            cursor: pointer
+        }
+
+        .message {
+            width: auto; 
+            height: auto; 
+            background-color: white;
+            border: 2px solid black;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+  </style>
+
+<script>
+    function getQuantity(id) { //получает количество товара по заданному идентификатору элемента ввода
+      const inputElement = document.getElementById(id); //// Находит элемент по ID
+      return parseInt(inputElement.value) || 0; // Возвращает числовое значение элемента или 0, если значение не число
+    }
+
+//const - это ключевое слово для объявления переменной, значение которой не может быть изменено после первоначального присваивания.
+//document.getElementById()
+//Возвращает ссылку на элемент по его идентификатору (ID (en-US)); идентификатор является строкой, которая может быть использована для идентификации 
+//элемента; она может быть определена при помощи атрибута id в HTML или из скрипта.    
+
+//Свойство value используется для получения текущего значения элемента формы, в данном случае <input> типа number
+//parseInt - строковый аргумент в число. Если parseInt возвращает NaN, то оператор || возвращает 0
+
+function calculateItemPrice(quantity, price) { //принимает количество и цену за единицу товара и возвращает общую стоимость
+      return quantity * price; //колво на цену
+    }
+
+    function calculateTotalPrice(applesQuantity, pearsQuantity, orangesQuantity, melonsQuantity) { //суммирует стоимость каждого товара, используя заданные цены
+      const applesPrice = 100;
+      const pearsPrice = 80;
+      const orangesPrice = 150;
+      const melonsPrice = 300;
+
+      const applesCost = calculateItemPrice(applesQuantity, applesPrice);
+      const pearsCost = calculateItemPrice(pearsQuantity, pearsPrice);
+      const orangesCost = calculateItemPrice(orangesQuantity, orangesPrice);
+      const melonsCost = calculateItemPrice(melonsQuantity, melonsPrice);
+
+      return applesCost + pearsCost + orangesCost + melonsCost; //сумма всех стоимостей
+    }
+
+    function updateTotalPrice(totalPrice) { //обновляет текстовый контент элемента, показывающего общую стоимость
+      const totalElement = document.getElementById("total-price-value"); // Находит элемент для отображения общей стоимости
+      totalElement.textContent = totalPrice; // Устанавливает текстовый контент элемента равным общей стоимости
+    }
+
+    // .textContent: для получения или установки текстового содержимого узла и его потомков. 
+    //textContent используется для установки текста элемента в значение totalPrice, переданное в функцию. 
+    //Это прямой способ обновления содержимого элемента на странице, что влияет на то, что видит пользователь.
+    
+    function onCalculateButtonClick() { //вычисляет и обновляет общую стоимость
+      const applesQuantity = getQuantity("apples-quantity"); // Получение количества каждого товара и расчёт общей стоимости
+      const pearsQuantity = getQuantity("pears-quantity"); //Для каждого типа фруктов вызывается getQuantity, передавая идентификатор соответствующего элемента ввода. 
+      //Эта функция возвращает количество товара, указанное пользователем, преобразуя его из строки в число. Если поле ввода пустое или содержит нечисловые символы, 
+      //getQuantity возвращает 0.
+      const orangesQuantity = getQuantity("oranges-quantity");
+      const melonsQuantity = getQuantity("melons-quantity");
+
+      const totalPrice = calculateTotalPrice(applesQuantity, pearsQuantity, orangesQuantity, melonsQuantity); //получает количества каждого типа фруктов как аргументы
+
+      updateTotalPrice(totalPrice); // Обновление общей стоимости на странице
+    }
+
+    function onClearButtonClick() { //очищает поля ввода и сбрасывает общую стоимость
+      document.getElementById("apples-quantity").value = ""; // Очистка полей ввода и сброс общей стоимости
+      document.getElementById("pears-quantity").value = "";
+      document.getElementById("oranges-quantity").value = "";
+      document.getElementById("melons-quantity").value = "";
+
+      const totalElement = document.getElementById("total-price-value");
+      totalElement.textContent = "0"; // Установка текстового контента элемента на 0
+    }
+
+    function showforfooter(){
+        let a= 'Это сообщение ложно'
+        alert (a)
+    }
+
+    function showAuthor() {
+        let author = 'Автор страницы:\n010595140';
+        alert (author)
+    }
+  </script>
+
+</head>
+<body>
+    <header style= "cursor: pointer"; onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+  <main>
+    <section>
+      <section>
+        <section>
+            <h2>Корзина товаров</h2>
+        </section>
+        <h1>Яблоки (100р/шт):</h1>
+        <input type="number" min="0" placeholder="Введите количество" id="apples-quantity">
+      </section>
+      <section>
+        <h1>Груши (80р/шт):</h1>
+        <input type="number" min="0" placeholder="Введите количество" id="pears-quantity">
+      </section>
+      <section>
+        <h1>Апельсины (150р/шт):</h1>
+        <input type="number" min="0" placeholder="Введите количество" id="oranges-quantity">
+      </section>
+      <section>
+        <h1>Дыни (300р/шт):</h1>
+        <input type="number" min="0" placeholder="Введите количество" id="melons-quantity">
+      </section>
+      <button id="calculate-button" onclick="onCalculateButtonClick()">Рассчитать</button>
+      <button id="clear-button" onclick="onClearButtonClick()">Очистить</button>
+      <section>
+        <h1>Общая цена: <span id="total-price-value">0</span> р</h1> <!--Элемент span, который динамически обновляется для показа общей стоимости товаров после нажатия кнопки "Рассчитать-->
+      </section>
+    </section>
+  </main>
+
+  <footer style= "cursor: pointer"; ondblclick="showforfooter()">
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
+
