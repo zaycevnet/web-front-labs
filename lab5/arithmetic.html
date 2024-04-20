@@ -11,15 +11,16 @@
 
     <script>
     function showSum() {
-        let inputA = document.getElementById('numberA');
+        let inputA = document.getElementById('numberA'); 
         let inputB = document.getElementById('numberB');
-
-        let a = parseInt(inputA.value);
+//  ссылки на HTML элементы (input-поля), идентифицированные по их id (numberA и numberB)
+// Преобразуют значения, введенные в текстовые поля (изначально строки), в целые числа.
+        let a = parseInt(inputA.value); 
         let b = parseInt(inputB.value);
         let result = a+b;
-        alert('Сумма ' + a + ' и ' + b + ' равна ' + result)
+        alert('Сумма ' + a + ' и ' + b + ' равна ' + result) //Отображает всплывающее окно
     }
-
+    
     function showRaz() {
         let inputA = document.getElementById('numberA');
         let inputB = document.getElementById('numberB');
