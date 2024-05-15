@@ -77,6 +77,21 @@
         document.getElementById('result').innerHTML = '';
         startGame();
     }
+    function toggleHelp() {
+        let helpBlock = document.getElementById('help-block');
+        let showButton = document.getElementById('show-help');
+        let hideButton = document.getElementById('hide-help');
+
+        if (helpBlock.classList.contains('hidden')) {
+            helpBlock.classList.remove('hidden');
+            showButton.style.display = 'none';
+            hideButton.style.display = 'inline-block';
+        } else {
+            helpBlock.classList.add('hidden');
+            showButton.style.display = 'inline-block';
+            hideButton.style.display = 'none';
+        }
+    }
 
     </script>
 </head>
@@ -102,6 +117,21 @@
             <div>Задуманное число: <span id="number"></span></div>
             <div>Количество попыток: <span id="try-count"></span></div>
             <div><button onclick="playAgain()">Сыграть еще раз</button></div>
+        </div>
+        
+        <div class="help">
+            <button id="show-help" onclick="toggleHelp()">Показать правила игры</button>
+            <button id="hide-help" class="hidden" onclick="toggleHelp()">Скрыть правила игры</button>
+            <div id="help-block" class="hidden">
+                <h2>Правила игры:</h2>
+                <ol>
+                    <li>Выберите число от 1 до 100.</li>
+                    <li>Попробуйте угадать задуманное компьютером число.</li>
+                    <li>Если ваше число больше задуманного, вы получите подсказку.</li>
+                    <li>Если ваше число меньше задуманного, также будет подсказка.</li>
+                    <li>Попробуйте угадать число за минимальное количество попыток!</li>
+                </ol>
+            </div>
         </div>
     </main>
     
