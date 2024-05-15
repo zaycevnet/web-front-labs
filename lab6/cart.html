@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+            box-shadow: black;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            box-shadow: black
+        }
+        th {
+            background-color: burlywood;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: black
+        }
+    </style>
+    <script>
+        function Result() {
+            
+            let userBalance = document.getElementById('user-balance').value;
+            let totalSum = 0;
+            let errorMessage = '';
+
+            let rows = document.querySelectorAll('table tr');
+            for (let i = 1; i < rows.length; i++) {
+                let quantity = parseInt(rows[i].querySelector('input').value) || 0;  
+                let price = parseInt(rows[i].querySelectorAll('td')[2].innerText);
+    
+                if (quantity < 0) {
+                    errorMessage = 'Ошибка! Количество товара не может быть отрицательным.';
+                    break;
+                }
+    
+                totalSum += quantity * price;
+            }
+
+
+            if (errorMessage !== '') {
+                document.getElementById('message').innerText = errorMessage; 
+            }
+
+            else if (totalSum > userBalance) {
+                document.getElementById('message').innerText = 'Ошибка! Сумма превышает имеющийся баланс.';
+            }
+            else if (totalSum === 0) {
+                    document.getElementById('message').innerText = 'Выберите хотя бы один товар.';
+            }
+            else {
+                    document.getElementById('message').innerText = 'Успешное оформление товара. Итоговая сумма: ' + totalSum + ' р.';
+            }
+
+
+            let screens = document.getElementsByClassName('message');
+            screens[0].style.display = 'block'
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 6
+    </header>
+    <main>
+        <div>
+             <div class="balance">
+                 Мой баланс:   
+                 <input type="number" value="" min="0" id="user-balance"><br>
+             </div>
+             
+             <div>
+                 <table>
+                     <tr style="font-weight: bold">
+                         <td></td>
+                         <td>Название</td>
+                         <td>Цена</td>
+                         <td>Количество</td>
+                     </tr>
+                     <tr>
+                         <td>1</td>
+                         <td>Молоко</td>
+                         <td>100 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                     <tr>
+                         <td>2</td>
+                         <td>Хлеб белый</td>
+                         <td>70 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td> 
+                     </tr>
+                     <tr>
+                         <td>3</td>
+                         <td>Хлеб черный</td>
+                         <td>50 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                     <tr>
+                         <td>4</td>
+                         <td>Хлеб серый</td>
+                         <td>40 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                     <tr>
+                         <td>5</td>
+                         <td>Крупа гречневая</td>
+                         <td>80 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                     <tr>
+                         <td>6</td>
+                         <td>Масло растительное</td>
+                         <td>100 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                     <tr>
+                         <td>7</td>
+                         <td>Кефир</td>
+                         <td>110 р</td>
+                         <td><input type="number" value="" min="0" id="quantity"><br></td>
+                     </tr>
+                 </table>
+             </div>
+ 
+             <button onclick="Result()">OK</button>
+             
+             <div class="message" > <span id='message'></span></div>
+             
+        </div>
+     </main>
+</main>
+
+<footer>
+    &copy; 010595140, ФБИ-21, 2 курс, 2024
+</footer>
+</body>
+</html>
