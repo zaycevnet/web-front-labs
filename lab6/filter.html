@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+    <style> 
+        select { 
+            margin: 5px; 
+            font-size: medium; 
+             
+        } 
+        img { 
+            height: 300px; 
+            display: block; 
+            margin: auto; 
+        } 
+    </style> 
+
+    <script>
+        function filter() {
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+
+            if (color === 'Красный') {
+                if (type === 'Футболка') {
+                    wear.src = 'futbolka-muzhskaya-krasnaya-poster-3.jpg';
+                } else if (type === 'Поло') {
+                    wear.src = '11575.50-1-1000x1000.jpg';
+                } else if (type === 'Майка') {
+                    wear.src = '20180326095404_004030625_5.jpg';
+                }
+            } else if (color === 'Белый') {
+                if (type === 'Футболка') {
+                    wear.src = '15175621092912960701_thumbnail_800x.jpg';
+                } else if (type === 'Поло') {
+                    wear.src = 'polo-muzhskoe-original-polo-yz-hlopka-175-g-m-beloe-713574.webp';
+                } else if (type === 'Майка') {
+                    wear.src = 'ge-cache-catalog-export-Mayka_belaya_dlya_malchika000000422_1-800x800-800x800.jpg';
+                }
+            } else if (color === 'Черный') {
+                if (type === 'Футболка') {
+                    wear.src = '2898b1e323c77d10534bccd0e74a025f.jpg';
+                } else if (type === 'Поло') {
+                    wear.src = '700-nw.jpg';
+                } else if (type === 'Майка') {
+                    wear.src = 'mayka-muzhskaya-chyornaya-h-b.jpg';
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <div>
+         Цвет одежды:
+         <select id="wear-color">
+             <option>Красный</option>
+             <option>Белый</option>
+             <option>Черный</option>
+         </select><br>
+ 
+         Тип одежды:
+         <select id="wear-type">
+             <option>Футболка</option>
+             <option>Поло</option>
+             <option>Майка</option>
+         </select><br>
+         <button onclick="filter()">ОК</button>
+ 
+         <img id="wear">
+        </div>
+     </main>
+
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
