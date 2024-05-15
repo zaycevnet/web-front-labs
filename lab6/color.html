@@ -13,28 +13,27 @@
             width: 200px;
             height: 102px;
             background-color: yellow;
-            /* border-radius: 100%; */
-            margin: auto;
+            margin: auto; /* Центрирует элемент по горизонтали */
             padding: 100px;
             text-align: center;
             cursor: pointer;
             color: black;
             border: 5px solid;
             border-color: orange;
-            transition: 0.5s; 
+            transition: 0.5s;  /* Добавляет плавный переход для всех изменений стилей в течение n секунд */
         }
         
         .color:hover{
-            transform: scale(1.1);
+            transform: scale(1.1); /* Увеличивает размер элемента при наведении */
         }
     </style>
 
     <script>
         function changeColor(div) {
                if (div.style.backgroundColor == 'yellow') {
-                   div.style.backgroundColor = 'purple';
-                   div.style.color = 'white';
-                   document.getElementById('color-name').innerHTML = 'фиолетовый';
+                   div.style.backgroundColor = 'purple'; // Изменяет фоновый цвет элемента на фиолетовый
+                   div.style.color = 'white'; // Изменяет цвет текста на белый
+                   document.getElementById('color-name').innerHTML = 'фиолетовый'; // Обновляет содержимое элемента с id 'color-name' на 'фиолетовый'
                    
                } 
                else if (div.style.backgroundColor == 'purple') {
@@ -65,7 +64,7 @@
         НГТУ, ФБ, Лабораторная работа 6
     </header>
     <main>
-        <div class="color" ondblclick="changeColor(this)">
+        <div class="color" ondblclick="changeColor(this)"> <!-- двойной щелчок тут -->
         Цвет: <span id="color-name">жёлтый</span><br>
         Сделайте двойной щелчок, чтобы сменить.
     </div>

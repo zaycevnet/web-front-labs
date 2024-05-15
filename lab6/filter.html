@@ -10,22 +10,22 @@
     <link rel="icon" href="../favicon-32x32">
     <style> 
         select { 
-            margin: 5px; 
-            font-size: medium; 
+            margin: 5px; /*отступ в 5 пикселей вокруг каждого select*/
+            font-size: medium; /*средний размер шрифта для текста*/
              
         } 
         img { 
             height: 300px; 
-            display: block; 
-            margin: auto; 
+            display: block; /*делает изображение блочным элементом (чтобы к нему применялись свойства, такие как margin)*/
+            margin: auto; /*центрирует изображение по горизонтали*/
         } 
     </style> 
 
     <script>
         function filter() {
-            let color = document.getElementById('wear-color').value;
+            let color = document.getElementById('wear-color').value; // Получает выбранное значение цвета одежды из выпадающего списка с id 'wear-color'.
             let type = document.getElementById('wear-type').value;
-            let wear = document.getElementById('wear');
+            let wear = document.getElementById('wear'); // Получает элемент изображения с id 'wear'.
 
             if (color === 'Красный') {
                 if (type === 'Футболка') {
@@ -75,9 +75,9 @@
              <option>Поло</option>
              <option>Майка</option>
          </select><br>
-         <button onclick="filter()">ОК</button>
+         <button onclick="filter()">ОК</button> <!-- Кнопка для вызова функции filter, которая изменит изображение в зависимости от выбранных значений -->
  
-         <img id="wear">
+         <img id="wear">  <!-- Изображение, которое будет меняться в зависимости от выбранных значений -->
         </div>
      </main>
 

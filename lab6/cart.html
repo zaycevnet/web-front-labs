@@ -10,37 +10,37 @@
     <link rel="icon" href="../favicon-32x32">
     <style>
         table {
-            border-collapse: collapse;
+            border-collapse: collapse; /*убирает промежутки между границами ячеек, объединяя их в одну линию. */
             width: 50%;
-            margin-top: 20px;
-            box-shadow: black;
+            margin-top: 20px; /*добавляет верхний отступ в 20 пикселей */
+            box-shadow: 0px 0px 5px black; /*задает черную тень вокруг таблицы  */
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 8px; 
             text-align: center;
-            box-shadow: black
+            box-shadow: 0px 0px 5px black
         }
         th {
-            background-color: burlywood;
+            background-color: burlywood; /*задает фоновый цвет для заголовков таблицы*/
         }
         footer {
             margin-top: 20px;
-            text-align: center;
-            box-shadow: black
+            text-align: right;
+            box-shadow: 0px 0px 5px black
         }
     </style>
     <script>
         function Result() {
             
-            let userBalance = document.getElementById('user-balance').value;
+            let userBalance = document.getElementById('user-balance').value; // Получение значения баланса пользователя
             let totalSum = 0;
             let errorMessage = '';
 
-            let rows = document.querySelectorAll('table tr');
+            let rows = document.querySelectorAll('table tr'); // Получение всех строк таблицы
             for (let i = 1; i < rows.length; i++) {
-                let quantity = parseInt(rows[i].querySelector('input').value) || 0;  
-                let price = parseInt(rows[i].querySelectorAll('td')[2].innerText);
+                let quantity = parseInt(rows[i].querySelector('input').value) || 0;  // Получение количества товара из соответствующей ячейки
+                let price = parseInt(rows[i].querySelectorAll('td')[2].innerText); // Получение цены товара из соответствующей ячейки
     
                 if (quantity < 0) {
                     errorMessage = 'Ошибка! Количество товара не может быть отрицательным.';
@@ -52,10 +52,10 @@
 
 
             if (errorMessage !== '') {
-                document.getElementById('message').innerText = errorMessage; 
+                document.getElementById('message').innerText = errorMessage; // Вывод сообщения об ошибке, если оно есть
             }
 
-            else if (totalSum > userBalance) {
+            else if (totalSum > userBalance) { // Проверка на превышение суммы баланса
                 document.getElementById('message').innerText = 'Ошибка! Сумма превышает имеющийся баланс.';
             }
             else if (totalSum === 0) {
@@ -66,7 +66,7 @@
             }
 
 
-            let screens = document.getElementsByClassName('message');
+            let screens = document.getElementsByClassName('message'); // Отображение блока сообщения
             screens[0].style.display = 'block'
         }
     </script>

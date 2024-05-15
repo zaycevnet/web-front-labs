@@ -21,21 +21,21 @@
         }
 
         .help {
-            margin-top: 20px;
+            margin-top: 20px;  /* Отступ сверху*/
             border: 1px solid green;
-            border-radius: 5px;
+            border-radius: 5px; /* Округляет углы блока*/
             padding: 10px;
             text-align: left;
         }
 
         .hidden {
-            display: none;
+            display: none; /* Скрывает элемент */
         }
       </style>
 
     <script>
-    let number;
-    let count = 0;
+    let number; //для хранения загаданного числа)
+    let count = 0; //колво попыток
 
     function startGame() {
         number = Math.floor(Math.random() * 100 + 1);
@@ -45,15 +45,15 @@
     }
 
     function guess() {
-        let input = document.getElementById('user-number');
-        let userNumber = parseInt(input.value);
+        let input = document.getElementById('user-number'); // Получает элемент ввода с id `user-number` и сохраняет его в переменную `input`
+        let userNumber = parseInt(input.value); // Преобразует значение из поля ввода в целое число и сохраняет его в переменной `userNumber`
 
-        if (isNaN(userNumber) || userNumber < 1 || userNumber > 100) {
+        if (isNaN(userNumber) || userNumber < 1 || userNumber > 100) { // Проверяет, что введенное число находится в диапазоне от 1 до 100
             alert('Введите число от 1 до 100!');
             return;
         }
 
-        count++;
+        count++; //// Увеличивает счетчик попыток на 1
         let message = document.getElementById('result');
         if (userNumber > number) {
             message.innerHTML = 'Вы ввели слишком большое число';
@@ -63,17 +63,17 @@
             let screens = document.getElementsByClassName('game');
             screens[1].style.display = 'none';
             screens[2].style.display = 'block';
-            document.getElementById('number').innerHTML = number;
+            document.getElementById('number').innerHTML = number; // Выводит загаданное число на экран победы
             document.getElementById('try-count').innerHTML = count;
         }
     }
 
-    function playAgain() {
+    function playAgain() { // Сбрасывает игру для новой попытки
         let screens = document.getElementsByClassName('game');
         screens[2].style.display = 'none';
         screens[1].style.display = 'block';
-        count = 0;
-        document.getElementById('user-number').value = '';
+        count = 0; // Сбрасывает счетчик попыток на 0
+        document.getElementById('user-number').value = '';   // Очищает поле ввода.
         document.getElementById('result').innerHTML = '';
         startGame();
     }
@@ -82,14 +82,14 @@
         let showButton = document.getElementById('show-help');
         let hideButton = document.getElementById('hide-help');
 
-        if (helpBlock.classList.contains('hidden')) {
+        if (helpBlock.classList.contains('hidden')) { // Если блок с правилами скрыт, показывает его.
             helpBlock.classList.remove('hidden');
-            showButton.style.display = 'none';
-            hideButton.style.display = 'inline-block';
+            showButton.style.display = 'none'; // Скрывает кнопку показа правил
+            hideButton.style.display = 'inline-block'; // Показывает кнопку скрытия правил
         } else {
-            helpBlock.classList.add('hidden');
-            showButton.style.display = 'inline-block';
-            hideButton.style.display = 'none';
+            helpBlock.classList.add('hidden'); // Если блок с правилами показан, скрывает его
+            showButton.style.display = 'inline-block'; // Показывает кнопку показа правил
+            hideButton.style.display = 'none';  // Скрывает кнопку скрытия правил
         }
     }
 
