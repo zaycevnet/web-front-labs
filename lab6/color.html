@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+    <style>
+        .color {
+            width: 200px;
+            height: 102px;
+            background-color: yellow;
+            /* border-radius: 100%; */
+            margin: auto;
+            padding: 100px;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            border: 5px solid;
+            border-color: orange;
+            transition: 0.5s; 
+        }
+        
+        .color:hover{
+            transform: scale(1.1);
+        }
+    </style>
+
+    <script>
+        function changeColor(div) {
+               if (div.style.backgroundColor == 'yellow') {
+                   div.style.backgroundColor = 'purple';
+                   div.style.color = 'white';
+                   document.getElementById('color-name').innerHTML = 'фиолетовый';
+                   
+               } 
+               else if (div.style.backgroundColor == 'purple') {
+                   div.style.backgroundColor ='black';
+                   div.style.color = 'white';
+                   document.getElementById('color-name').innerHTML = 'чёрный';
+               } 
+               else if (div.style.backgroundColor == 'black') {
+                   div.style.backgroundColor = 'blue';
+                   div.style.color = 'orange';
+                   document.getElementById('color-name').innerHTML = 'синий';
+               } 
+               else if (div.style.backgroundColor == 'blue') {
+                   div.style.backgroundColor = 'lime';
+                   div.style.color = 'white';
+                   document.getElementById('color-name').innerHTML = 'лайм';
+               } 
+               else {
+                   div.style.backgroundColor = 'yellow';
+                   div.style.color = 'orange';
+                   document.getElementById('color-name').innerHTML = 'жёлтый';
+               }
+           }
+       </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <div class="color" ondblclick="changeColor(this)">
+        Цвет: <span id="color-name">жёлтый</span><br>
+        Сделайте двойной щелчок, чтобы сменить.
+    </div>
+    </main>
+
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
