@@ -13,13 +13,31 @@
             let newBlock = document.createElement('div');
             newBlock.style.backgroundColor = 'green';
             newBlock.style.height = '40px';
-            newBlock.style.border = 'solid 1px black'
-            newBlock.style.borderRadius = '1px'
-            newBlock.style.margin = '1px'
-            newBlock.style.widows = '100px'
+            newBlock.style.border = 'solid 2px black'
+            newBlock.style.borderRadius = '2px'
+            newBlock.style.margin = '2px'
+            newBlock.style.widows = '400px'
             document.querySelector('main').appendChild(newBlock);
 
         }
+
+        function addNewBlocks(){
+            let main = document.querySelector('main')
+            let number = document.getElementById('balance').value;
+            number = parseInt(number)
+            for (let i = 0; i < number; i++){
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'green';
+                newBlock.style.height = '40px';
+                newBlock.style.border = 'solid 2px black'
+                newBlock.style.borderRadius = '2px'
+                newBlock.style.margin = '2px'
+                withA = (i+15) + '0px'
+                newBlock.style.width = withA
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i+1}<sup>2</sup> = ${2*(i+1)**2}`;
+                main.appendChild(newBlock);
+            }
+}
     </script>
 </head>
 <body>
@@ -29,6 +47,8 @@
 
     <main>
         <button onclick="addNewBlock()">Добавить блок</button>
+        <button onclick="addNewBlocks()">Добавить блоки</button>
+        <input type="number" value="100" id="balance"></label>
     </main>
     
     <footer>
