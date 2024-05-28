@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+
+    <script>
+        function showAction(){
+            const actiondata = ['15.05.2024','16.05.2024','17.05.2024','20.05.2024',
+                '21.05.2024','22.05.2024','23.05.2024','24.05.2024','27.05.2024','28.05.2024']
+            const actionvalue = [485.50, 476.00, 479.70, 466.80, 463.60, 458.00, 463.25, 446.95, 451.75, 452.90]
+            let tabllee = document.getElementById('tablee');
+            for (let i=0; i < actionvalue.length; i++){
+            let tr = document.createElement('tr');
+
+            let td1 = document.createElement('td');
+            td1.innerText = actiondata[i];
+            tr.appendChild(td1);
+
+            let td2 = document.createElement('td');
+            td2.innerText = actionvalue[i];
+            tr.appendChild(td2);
+            if (i > 0) {
+            let diff = actionvalue[i] - actionvalue[i-1];
+            let td3 = document.createElement('td');
+            td3.innerText = diff.toFixed(2);
+            tr.appendChild(td3);
+            } else {
+                let td3 = document.createElement('td');
+                td3.innerText = '-';
+                tr.appendChild(td3);
+            }
+
+            tabllee.appendChild(tr);
+            }
+            let detail = document.getElementById('detail')
+            let max = document.getElementById('max')
+            let min = document.getElementById('min')
+
+            
+            max.innerText = "Максимльное значение: "+Math.max(...actionvalue);
+            min.innerText = "Минимальное значение: "+Math.min(...actionvalue);
+
+            let sum = 0
+            for(let i = 0; i < actionvalue.length; i++){
+                sum += actionvalue[i]
+
+
+            }
+            let avarage = sum/actionvalue.length
+            avarage = avarage.toFixed(2)
+            detail.innerHTML = "Среднее значение: " + avarage
+            let but = document.getElementById('but');
+            but.style.display = 'none'  
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showAction()" id="but">Акции ЭН+ ГРУП (ENPG)</button>
+        <table id="tablee" border="1"></table>
+        <div id="detail"></div>
+        <div id="max"></div>
+        <div id="min"></div>
+    </main>
+    
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
