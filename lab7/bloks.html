@@ -37,7 +37,24 @@
                 newBlock.innerHTML = `Блок № ${i+1}: 2*${i+1}<sup>2</sup> = ${2*(i+1)**2}`;
                 main.appendChild(newBlock);
             }
-}
+        }
+
+            function add20_50(){
+            let main = document.querySelector('main')
+            for (let i = 20; i <= 50; i+= 2.){
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'blue';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px green'
+                newBlock.style.borderRadius = '2px'
+                newBlock.style.margin = '2px'
+                newBlock.style.width = "100px"
+                newBlock.style.color = "white"
+                newBlock.innerHTML = `Блок № ${i}`;
+                main.appendChild(newBlock);
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -49,6 +66,7 @@
         <button onclick="addNewBlock()">Добавить блок</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <input type="number" value="100" id="balance"></label>
+        <button onclick="add20_50()">20=>50</button>
     </main>
     
     <footer>
