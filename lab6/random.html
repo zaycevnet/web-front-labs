@@ -78,12 +78,12 @@
         startGame();
     }
     function toggleHelp() {
-        let helpBlock = document.getElementById('help-block');
-        let showButton = document.getElementById('show-help');
-        let hideButton = document.getElementById('hide-help');
+        let helpBlock = document.getElementById('help-block'); //элемент с правилами игры
+        let showButton = document.getElementById('show-help'); //кнопка "Показать правила игры"
+        let hideButton = document.getElementById('hide-help'); //кнопка "Скрыть правила игры" 
 
         if (helpBlock.classList.contains('hidden')) { // Если блок с правилами скрыт, показывает его.
-            helpBlock.classList.remove('hidden');
+            helpBlock.classList.remove('hidden'); //Удаляет класс hidden из helpBlock, делая его видимым
             showButton.style.display = 'none'; // Скрывает кнопку показа правил
             hideButton.style.display = 'inline-block'; // Показывает кнопку скрытия правил
         } else {
