@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010595140. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16">
+    <link rel="icon" href="../favicon-32x32">
+
+    <script>
+        function getEuroExchangeRate(){
+             const url = "https://www.cbr-xml-daily.ru/daily_json.js";
+             fetch(url)
+             .then(function(response){
+                 return response.json();
+             })
+             .then(function(json){
+                 const differense = json.Valute.EUR.Value - json.Valute.EUR.Previous
+                 let table = document.getElementById("table-eur");
+                 let tr = document.createElement('tr');
+                 let td = document.createElement('td');
+                 td.innerText = json.PreviousDate.split("T")[0]
+                 tr.appendChild(td);
+                 let td1 = document.createElement('td');
+                 td1.innerText = json.Valute.EUR.Previous
+                 tr.appendChild(td1)
+                 table.appendChild(tr);
+ 
+                 let tr1 = document.createElement('tr');
+                 let td2 = document.createElement('td');
+                 td2.innerText = json.Date.split("T")[0];
+                 tr1.appendChild(td2);
+                 let td3 = document.createElement('td');
+                 td3.innerText = json.Valute.EUR.Value;
+                 tr1.appendChild(td3);
+                 table.appendChild(tr1);
+                 let output = document.getElementById('output')
+                 if (differense > 0){
+                     output.innerText = "Курс вырос на: " + differense.toFixed(2) + " !"
+                 }
+                 else if (differense<0){
+                     output.innerText = "Курс опустился на: " + differense.toFixed(2) + " !"
+                 }
+             })
+         }
+     </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <a href="https://www.cbr-xml-daily.ru/">Курсы валют, API</a>
+        <button onclick="getEuroExchangeRate()">Получить курс обмена евро</button>
+        <table border="1" id="table-eur"></table>
+        <div id="output"></div>
+    </main>
+    
+    <footer>
+        &copy; 010595140, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
