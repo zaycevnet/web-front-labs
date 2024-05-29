@@ -10,12 +10,12 @@
     <link rel="icon" href="../favicon-32x32">
     <script src="lab8.js"></script>
     <style>
-        #current-date2, #current-date3, #current-date4, #current-date5, #current-date6{
+        /* #current-date2, #current-date3, #current-date4, #current-date5, #current-date6{
             color: green;
             font-weight: bold;
             font-size: 1.2em;
             margin: 10px 0;
-        }
+        } */
         #current-date{
             margin-top: 10px;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body onload="showDate()">
+<body onload="showDate(); showCurrentDate()"></body>
 
     <header>
         НГТУ, ФБ, Лабораторная работа 8
@@ -38,6 +38,12 @@
         <div id="current-date4"></div>
         <div id="current-date5"></div>
         <div id="current-date6"></div>
+        <div style="border: 1px solid black; border-radius: 10px; width: 400px; padding: 20px; margin-top: 30px">
+            <div id="outputYear"></div>
+            <div id="outputMonth"></div>
+            <div id="outputDay"></div>
+            <div id="outputWeak"></div>
+        </div>
     </main>
     
     <footer>
