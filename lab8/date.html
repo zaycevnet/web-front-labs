@@ -44,6 +44,18 @@
             <div id="outputDay"></div>
             <div id="outputWeak"></div>
         </div>
+        
+        <div class="input-section">
+            <label for="day">День: </label>
+            <input type="number" id="day" min="1" max="31"><br>
+            <label for="month">Месяц: </label>
+            <input type="number" id="month" min="1" max="12"><br>
+            <label for="year">Год: </label>
+            <input type="number" id="year" min="1000" max="9999"><br>
+            <button onclick="showDayOfWeek()">Узнать день недели</button>
+        </div>
+        <div id="day-of-week" class="date-info"></div>
+        
     </main>
     
     <footer>
