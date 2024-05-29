@@ -25,3 +25,34 @@ let year = document.getElementById('outputYear');
     Day.innerHTML = "Текущий день: " + dt.getDate();
     weak.innerHTML = "Текущий день недели: " + weakkk[dt.getDay()];
 }
+
+function showDayOfWeek() {
+    let day = parseInt(document.getElementById('day').value);
+    let month = parseInt(document.getElementById('month').value);
+    let year = parseInt(document.getElementById('year').value);
+
+    if (isValidDate(day, month, year)) {
+        let date = new Date(year, month - 1, day);
+        let dayOfWeek = date.toLocaleString('ru-RU', { weekday: 'long' });
+
+        document.getElementById('day-of-week').innerHTML = `День недели: ${dayOfWeek}`;
+    } else {
+        document.getElementById('day-of-week').innerHTML = 'Пожалуйста, введите корректные данные.';
+    }
+}
+
+function isValidDate(day, month, year) {
+    // Проверка на целые числа
+    if (!Number.isInteger(day) || !Number.isInteger(month) || !Number.isInteger(year)) {
+        return false;
+    }
+
+    // Проверка диапазонов
+    if (year < 1 || year > 9999 || month < 1 || month > 12 || day < 1 || day > 31) {
+        return false;
+    }
+
+    // Проверка на корректность месяца и дня
+    let date = new Date(year, month - 1, day);
+    return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+}
