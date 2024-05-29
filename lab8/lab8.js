@@ -12,4 +12,16 @@ function showDate(){
     out4.innerHTML =  "Hungarian: "+today.toLocaleString("hu");
     out5.innerHTML =  "French: "+today.toLocaleString("fr");
     out6.innerHTML =  "Croatian: "+today.toLocaleString("hr");
+
+let year = document.getElementById('outputYear');
+    let month = document.getElementById('outputMonth');
+    let Day = document.getElementById('outputDay');
+    let weak = document.getElementById('outputWeak');
+    dt = new Date()
+    const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    const weakkk = ['Воскресенье', "Понедельник", "Вторник","Среда","Четверг","Пятница","Суббота"]
+    year.innerHTML = "Текущий год: " + dt.getFullYear()
+    month.innerHTML = "Текущий месяц: " + months[dt.getMonth()];
+    Day.innerHTML = "Текущий день: " + dt.getDate();
+    weak.innerHTML = "Текущий день недели: " + weakkk[dt.getDay()];
 }
