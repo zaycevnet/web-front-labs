@@ -12,34 +12,35 @@
     <script>
         function getEuroExchangeRate(){
              const url = "https://www.cbr-xml-daily.ru/daily_json.js";
-             fetch(url)
+             fetch(url) //делает HTTP-запрос к указанному URL и что-то возвращает в объект ответа
              .then(function(response){
-                 return response.json();
+                 return response.json(); //Преобразует ответ в формат JSON
              })
-             .then(function(json){
-                 const differense = json.Valute.EUR.Value - json.Valute.EUR.Previous
+             .then(function(json){ //Получает данные в формате JSON.
+                 const differense = json.Valute.EUR.Value - json.Valute.EUR.Previous //вычисление разницы между текущим и предыдущим курсом 
                  let table = document.getElementById("table-eur");
-                 let tr = document.createElement('tr');
-                 let td = document.createElement('td');
-                 td.innerText = json.PreviousDate.split("T")[0]
-                 tr.appendChild(td);
-                 let td1 = document.createElement('td');
-                 td1.innerText = json.Valute.EUR.Previous
-                 tr.appendChild(td1)
-                 table.appendChild(tr);
+                 let tr = document.createElement('tr'); //Создание строки
+                 let td = document.createElement('td'); //ячейки
+                 td.innerText = json.PreviousDate.split("T")[0] //Заполнение ячеек данными
+                 tr.appendChild(td); //Добавляет ячейку td в строку tr. td содержит дату предыдущего дня (json.PreviousDate.split("T")[0])
+                 let td1 = document.createElement('td'); //Создает новую ячейку таблицы <td>
+                 td1.innerText = json.Valute.EUR.Previous //Устанавливает текстовое содержимое ячейки td1 на значение курса евро за предыдущий день
+                 tr.appendChild(td1)  //Добавляет ячейку td1 в строку tr. Теперь строка tr содержит две ячейки: дату и курс за предыдущий день.
+                 table.appendChild(tr); //Теперь таблица содержит одну строку с двумя ячейками
  
                  let tr1 = document.createElement('tr');
                  let td2 = document.createElement('td');
-                 td2.innerText = json.Date.split("T")[0];
-                 tr1.appendChild(td2);
-                 let td3 = document.createElement('td');
-                 td3.innerText = json.Valute.EUR.Value;
-                 tr1.appendChild(td3);
-                 table.appendChild(tr1);
+                 td2.innerText = json.Date.split("T")[0]; //Устанавливает текстовое содержимое ячейки td2 на значение текущей даты (json.Date.split("T")[0]).
+                 tr1.appendChild(td2); //Добавляет ячейку td2 в строку tr1
+                 let td3 = document.createElement('td'); //Создает новую ячейку таблицы
+                 td3.innerText = json.Valute.EUR.Value; //Устанавливает текстовое содержимое ячейки td3 на значение текущего курса евро
+                 tr1.appendChild(td3); //Теперь строка tr1 содержит две ячейки: дату и курс за текущий день.
+                 table.appendChild(tr1); //Теперь таблица содержит две строки, каждая из которых содержит две ячейки: дату и курс.
+                 
                  let output = document.getElementById('output')
                  if (differense > 0){
                      output.innerText = "Курс вырос на: " + differense.toFixed(2) + " !"
-                 }
+                 } //toFixed(2) округляет значение разницы до двух знаков после запятой.
                  else if (differense<0){
                      output.innerText = "Курс опустился на: " + differense.toFixed(2) + " !"
                  }

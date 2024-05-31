@@ -9,22 +9,22 @@
     <link rel="icon" href="../favicon-16x16">
     <link rel="icon" href="../favicon-32x32">
     <script>
-        function addNewBlock(){
+        function addNewBlock(){ //добавления нового блока
             let newBlock = document.createElement('div');
-            newBlock.style.backgroundColor = 'green';
-            newBlock.style.height = '40px';
-            newBlock.style.border = 'solid 2px black'
-            newBlock.style.borderRadius = '2px'
-            newBlock.style.margin = '2px'
-            newBlock.style.widows = '400px'
-            document.querySelector('main').appendChild(newBlock);
-
-        }
+            newBlock.style.backgroundColor = 'green'; //доступ к стилям элемента фоновый цвет
+            newBlock.style.height = '40px'; //высота элемента 
+            newBlock.style.border = 'solid 2px black' //рамка элемента: сплошная линия
+            newBlock.style.borderRadius = '2px' //радиус закругления углов элемента
+            newBlock.style.margin = '2px' //внешние отступы элемента
+            newBlock.style.width = '400px' //ширина
+            document.querySelector('main').appendChild(newBlock); //находит первый элемент main на странице
+        } //ищет первый элемент на странице, который соответствует указанному CSS
+        // добавляет указанный элемент как последний дочерний элемент к элементу, найденному с помощью querySelector
 
         function addNewBlocks(){
-            let main = document.querySelector('main')
-            let number = document.getElementById('balance').value;
-            number = parseInt(number)
+            let main = document.querySelector('main') 
+            let number = document.getElementById('balance').value; //Получение значения из элемента input с id balance
+            number = parseInt(number) //Преобразование полученного значения в целое число
             for (let i = 0; i < number; i++){
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = 'green';
@@ -32,11 +32,11 @@
                 newBlock.style.border = 'solid 2px black'
                 newBlock.style.borderRadius = '2px'
                 newBlock.style.margin = '2px'
-                withA = (i+15) + '0px'
+                let withA = (i+15) + '0px' //установка ширины элемента
                 newBlock.style.width = withA
-                newBlock.innerHTML = `Блок № ${i+1}: 2*${i+1}<sup>2</sup> = ${2*(i+1)**2}`;
-                main.appendChild(newBlock);
-            }
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i+1}<sup>2</sup> = ${2*(i+1)**2}`; //установка содержимого блока
+                main.appendChild(newBlock); //добавление элемента в main
+            } //$ Вставляет значение выражения i + 1 внутрь строки.  <sup>2</sup> - 2 будет в степени, умножение и квадрат
         }
 
             function add20_50(){
@@ -49,17 +49,17 @@
                 newBlock.style.borderRadius = '2px'
                 newBlock.style.margin = '2px'
                 newBlock.style.width = "100px"
-                newBlock.style.color = "white"
-                newBlock.innerHTML = `${i}`;
-                main.appendChild(newBlock);
+                newBlock.style.color = "white" //innerHTML позволяет задать HTML-содержимое элемента newBlock
+                newBlock.innerHTML = `${i}`; //вставляет текущее значение переменной i в содержимое элемента
+                main.appendChild(newBlock); //appendChild добавляет элемент newBlock как последний дочерний элемент к элементу main
             }
         }
 
             function add10_m80(){
-                let main = document.querySelector('main')
-                let flexContainer = document.createElement('div');
-                flexContainer.style.display = 'flex'
-                main.appendChild(flexContainer)
+                let main = document.querySelector('main') 
+                let flexContainer = document.createElement('div'); //Создание нового элемента div и сохранение его в переменной flexContainer
+                flexContainer.style.display = 'flex' //display: flex для контейнера, чтобы элементы внутри него располагались в строку
+                main.appendChild(flexContainer) //Добавление контейнера flexContainer как последнего дочернего элемента в элемент main
                 for (let i = 10; i >=-80 ; i-= 3){
                     let newBlock = document.createElement('div');
                     newBlock.style.backgroundColor = 'white';
@@ -96,7 +96,7 @@
                     newBlock.style.width = "100px"
                     newBlock.style.color = "black"
                     newBlock.style.textAlign = 'center'
-                    newBlock.style.opacity =  i * 0.1
+                    newBlock.style.opacity =  i * 0.1 //установка прозрачности
                     newBlock.innerHTML = `${i}`;
                     flexContainer.appendChild(newBlock);
                 }
@@ -104,30 +104,30 @@
 
         function add_red_green(){
             let main = document.querySelector('main');
-            let number = document.getElementById('colors').value;
-            number = parseInt(number);
-            let flexContainer = document.createElement('div');
-            flexContainer.style.display = 'flex';
+            let number = document.getElementById('colors').value; //Получение значения из элемента input с id colors
+            number = parseInt(number); //Преобразование полученного значения в целое число
+            let flexContainer = document.createElement('div'); //Создание нового элемента div и сохранение его в переменной flexContainer
+            flexContainer.style.display = 'flex'; //чтобы элементы внутри него располагались в строку
             flexContainer.style.alignItems = 'center';
             main.appendChild(flexContainer);
             for (let i = number; i >= 1; i -= 1){
                 let newBlock = document.createElement('div');
-                if (i % 2 == 0){
+                if (i % 2 == 0){ //Для четных значений i
                     newBlock.style.backgroundColor = "green";
                     newBlock.style.margin = '2px';
                     newBlock.style.width = "100px";
                     newBlock.style.display = 'flex';
                     newBlock.style.height = '50px';
                     newBlock.style.border = 'solid 2px green';
-                    newBlock.style.borderRadius = '50%';
-                    newBlock.style.alignItems = 'center';
-                    newBlock.style.justifyContent = 'center';
+                    newBlock.style.borderRadius = '50%'; //радиус закругления углов элемента
+                    newBlock.style.alignItems = 'center'; //по вертикали по центру
+                    newBlock.style.justifyContent = 'center'; //по горизонтали по центру
                     newBlock.style.textAlign = 'center';
                     newBlock.innerHTML = `${i}`;
                     newBlock.style.justifyContent = 'center'
                     flexContainer.appendChild(newBlock);
                 }
-                else{
+                else{ //Для нечетных значений i
                     newBlock.style.backgroundColor = "red";
                     newBlock.style.margin = '2px';
                     newBlock.style.width = "100px";

@@ -11,15 +11,15 @@
     <script>
         function getweather(){
             const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
-            fetch(url)
+            fetch(url) //делает HTTP-запрос к указанному URL и что-то возвращает в объект ответа
             .then(function(response){
-                return response.json()
+                return response.json() //Преобразует ответ в формат JSON
             })
-            .then(function(json){
+            .then(function(json){ //Получает данные в формате JSON.
                 let output = document.getElementById('output')
-                console.log(json)
-                let weather = json.hourly.temperature_2m;
-                output.innerText = weather[8] + " °C"
+                console.log(json) //Логирование полученных данных в консоль для отладки
+                let weather = json.hourly.temperature_2m; //Извлечение данных о почасовой температуре
+                output.innerText = weather[8] + " °C" //Установка текста элемента output на температуру в 8-й час.
             })
         }
         function getweather1(){
@@ -49,55 +49,6 @@
             })
         }
     </script>
-    <style>
-        .bord{
-            border: 1px solid lightblue;
-            border-radius: 10px;
-            width: 400px;
-            height: 200px;
-            background-color: lavender;
-        }
-        .but{
-            border: 1px solid lightseagreen;
-            background-color: lightyellow;
-            border-radius: 10px;
-            width: 80px;
-            height: 30px;
-            margin-top: 30px;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-        .but2{
-            border: 1px solid lightseagreen;
-            background-color: lightyellow;
-            border-radius: 10px;
-            width: 80px;
-            height: 30px;
-            margin-top: 10px;
-            cursor: pointer;
-            margin-left: 20px;
-
-        }
-        .bord2{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-        }
-        #output{
-            width: 150px;
-            height: 60px;
-            display: flex;
-            position: absolute;
-            border: 1px solid lightblue;
-            border-radius: 10px;
-            margin-left: 200px;
-            top: 130px;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            background-color: lightcyan;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -105,9 +56,9 @@
     </header>
 
     <main>
-        <div class="bord">
-            <div style="text-align: center;">Погода</div>
-            <div class="bord2">
+        <div>
+            <div>Погода</div>
+            <div>
             <button onclick="getweather()" class="but">8 утра</button>
             <button onclick="getweather1()" class="but2" >12 дня</button>
             <button onclick="getweather2()" class="but2" >20 вечера</button>

@@ -13,50 +13,53 @@
         function showAction(){
             const actiondata = ['15.05.2024','16.05.2024','17.05.2024','20.05.2024',
                 '21.05.2024','22.05.2024','23.05.2024','24.05.2024','27.05.2024','28.05.2024']
-            const actionvalue = [485.50, 476.00, 479.70, 466.80, 463.60, 458.00, 463.25, 446.95, 451.75, 452.90]
-            let tabllee = document.getElementById('tablee');
+            const actionvalue = [485.50, 476.00, 479.70, 466.80, 463.60, 458.00, 463.25, 446.95, 451.75, 452.90] //цены акций
+            let tabllee = document.getElementById('tablee'); //Получение элемента таблицы с id tablee
+            
             for (let i=0; i < actionvalue.length; i++){
-            let tr = document.createElement('tr');
+            let tr = document.createElement('tr'); //Создание нового элемента строки
 
-            let td1 = document.createElement('td');
-            td1.innerText = actiondata[i];
-            tr.appendChild(td1);
+            let td1 = document.createElement('td'); //Создание новой ячейки td1,
+            td1.innerText = actiondata[i]; //установка ее текста на текущее значение из массива actiondata
+            tr.appendChild(td1); //добавление ячейки в строку tr
 
-            let td2 = document.createElement('td');
+            let td2 = document.createElement('td'); //аналогично
             td2.innerText = actionvalue[i];
             tr.appendChild(td2);
+            
             if (i > 0) {
-            let diff = actionvalue[i] - actionvalue[i-1];
-            let td3 = document.createElement('td');
+            let diff = actionvalue[i] - actionvalue[i-1]; //разница между текущим и предыдущим значением цены акций
+            let td3 = document.createElement('td'); //результат добавляется в ячейку td3
             td3.innerText = diff.toFixed(2);
             tr.appendChild(td3);
             } else {
                 let td3 = document.createElement('td');
-                td3.innerText = '-';
-                tr.appendChild(td3);
+                td3.innerText = '-'; //innerText устанавливает или получает текстовое содержимое элемента
+                tr.appendChild(td3); //appendChild добавляет ячейку td3 как последний дочерний элемент к строке tr
             }
 
-            tabllee.appendChild(tr);
+            tabllee.appendChild(tr); //Добавление строки tr в таблицу tabllee
             }
             let detail = document.getElementById('detail')
             let max = document.getElementById('max')
             let min = document.getElementById('min')
 
             
-            max.innerText = "Максимльное значение: "+Math.max(...actionvalue);
-            min.innerText = "Минимальное значение: "+Math.min(...actionvalue);
+            max.innerText = "Максимльное значение: "+Math.max(...actionvalue); //Установка текста элемента max на максимальное значение из массива actionvalue
+            min.innerText = "Минимальное значение: "+Math.min(...actionvalue); //разворачивает массив actionvalue в отдельные значения, которые передаются в функцию Math.max
 
             let sum = 0
-            for(let i = 0; i < actionvalue.length; i++){
-                sum += actionvalue[i]
+            for(let i = 0; i < actionvalue.length; i++){ //пока i меньше длины массива actionvalue
+                sum += actionvalue[i] //На каждой итерации цикла добавляет текущее значение элемента массива actionvalue[i] к переменной sum
 
 
             }
-            let avarage = sum/actionvalue.length
-            avarage = avarage.toFixed(2)
-            detail.innerHTML = "Среднее значение: " + avarage
-            let but = document.getElementById('but');
-            but.style.display = 'none'  
+            let avarage = sum/actionvalue.length //среднее значение всех элементов массива
+            avarage = avarage.toFixed(2) //Округляет среднее значение до двух знаков после запятой с помощью метода toFixed(2) и присваивает это значение обратно переменной average.
+            detail.innerHTML = "Среднее значение: " + avarage //Доступ к свойству innerHTML элемента detail
+            
+            let but = document.getElementById('but'); //Получение элемента кнопки с id but
+            but.style.display = 'none'  //скрытие кнопки
         }
     </script>
 </head>

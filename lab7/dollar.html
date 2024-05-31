@@ -13,13 +13,13 @@
         function showExchange(){
             const exchange = [92.9214, 92.5254, 92.3892, 92.3058, 93.7196, 93.7196, 91.4419, 
             93.5891, 94.0742, 94.3242];
-            let table = document.getElementById('dollar-table');
+            let table = document.getElementById('dollar-table'); //Получение элемента таблицы с id dollar-table
             for(let i = 0; i < exchange.length; i++){
-                let tr = document.createElement('tr');
-                let td = document.createElement('td');
-                td.innerText = exchange[i];
-                tr.appendChild(td);
-                table.appendChild(tr);
+                let tr = document.createElement('tr'); //создание ноого элемента строки таблицы
+                let td = document.createElement('td'); //столбца
+                td.innerText = exchange[i]; //текста ячейки на текущее значение из массива
+                tr.appendChild(td);  //Добавление ячейки td в строку tr
+                table.appendChild(tr); //Добавление строки tr в таблицу table
 
             }
             let sum = 0
@@ -27,10 +27,10 @@
             for(let i = 0; i < exchange.length; i++){
                 sum += exchange[i]
             }
-            let avarage = sum/exchange.length
-            avarage = avarage.toFixed(2)
-            detail.innerHTML = "Среднее значение: " + avarage
-            document.getElementById('but').style.display = 'none'
+            let avarage = sum/exchange.length //Вычисление среднего значения
+            avarage = avarage.toFixed(2) //Округление среднего значения до двух знаков после запятой
+            detail.innerHTML = "Среднее значение: " + avarage //Установка текста элемента detail на строку с средним значением
+            document.getElementById('but').style.display = 'none' //Скрытие кнопки с id but  свойства display в none.
         }
     </script>
 </head>
