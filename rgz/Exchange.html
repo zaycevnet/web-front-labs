@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>РГЗ</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function change(){
+            let menu = document.getElementById('menu');
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+            
+            logos.style.width = '70px'
+            logos1.style.width = '70px'
+            logos2.style.width = '70px'
+            logos3.style.width = '70px'
+            logos4.style.width = '70px'
+
+            menu.style.width = '480px'
+            menu.style.height = '100px'
+           
+        }
+        function outchange(){
+            let menu = document.getElementById('menu');
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+
+
+            logos.style.width = '40px'
+            logos1.style.width = '40px'
+            logos2.style.width = '40px'
+            logos3.style.width = '40px'
+            logos4.style.width = '40px'
+            
+            
+
+            menu.style.width = '260px'
+            menu.style.height = '60px'
+           
+
+        }
+
+
+
+        function link1(){
+            window.open("Company_info.html", "_blank");
+        }
+        function link2(){
+            window.open("News.html", "_blank");
+        }
+        function link3(){
+            window.open("Exchange.html", "_blank");
+        }
+        function link4(){
+            window.open("Contact.html", "_blank");
+        }
+        function link5(){
+            window.open("Video.html", "_blank");
+        }
+
+        function getinfo(){
+            const url = "https://www.cbr-xml-daily.ru/daily_json.js";
+            fetch(url) //Выполнение HTTP-запроса по указанному URL
+            .then(function(response){ //обрабатывает ответ от сервера
+                return response.json(); //реобразует ответ в формат JSON
+            })
+            .then(function(json){ //обрабатывает уже полученный JSON-объект
+                let userinfo = document.getElementById('input').value; //Получение значения из элемента с идентификатором input
+                let output  = document.getElementById('output');
+                let rubbrl1 = document.getElementById('rubbrl').value;
+                let rubbrl2 = document.getElementById('rubbrl2').value;
+                userinfo =  parseFloat(userinfo); //Преобразование userinfo в число с плавающей запятой
+                a = json.Valute.BRL.Value //Получение текущего курса (BRL) из JSON-объекта и сохранение его
+                if (userinfo<0 || isNaN(userinfo)){ //является ли userinfo отрицательным числом или не числом
+                    output.innerText = 'Введите корректные данные!'
+                }
+                else if(rubbrl1 == "RUB" && rubbrl2 == "RUB"){
+                    output.innerText = userinfo + " ₽"
+                }
+                
+                else if(rubbrl1 == "BRL" && rubbrl2 == "BRL"){
+                    output.innerText = userinfo + " R$"
+                }
+                else if(rubbrl1 == "RUB" && rubbrl2 == "BRL"){ //конвертируется значение из рублей в бразильские реалы и выводится результат, округленный до двух знаков после запятой.
+                    output.innerText = (userinfo / a).toFixed(2) + " R$";
+                }
+                else if(rubbrl1 == "BRL" && rubbrl2 == "RUB"){
+                    output.innerText = ((a) * userinfo).toFixed(2) + " ₽";
+                }
+            })
+        }
+
+
+
+
+    </script>
+    <style>
+        .zagolovok{
+            font-size: 70px;
+            color: #202d4f;
+            font-family: 'PlayfairDisplay', Georgia, serif;
+            margin-left: 200px;
+            margin-top: 30px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .exchange-main{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-left: 650px;
+            margin-top: 100px;
+            background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 192, 203, 0.5));
+        }
+        #rubbrl, #rubbrl2{
+            border-radius: 30px;
+            border: 1px solid blueviolet;
+            width: 250px;
+            height: 50px;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 30px;
+            margin-left: 10px;
+        }
+        #rubrbl2{
+            margin-left: 30px;
+        }
+        #rubbrl2div{
+            margin-left: 60px;
+        }
+
+        #go{
+            border: 1px solid black;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            left: 1050px;
+            position: absolute;
+            margin-top: 10px;
+            width: 130px;
+            height: 40px;
+        }
+        #input{
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 130px;
+            height: 33px;
+            font-size: 20px;
+            margin-left: 65px;
+            margin-top: 10px;
+        }
+        #output{
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 300px;
+            height: 50px;
+            margin-top: 20px;
+            margin-left: 140px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            background-color: aliceblue;
+            font-size: 27px;
+
+        }
+        
+                
+
+       
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="mainheader">
+            <div id="first">
+                <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/logo.svg" alt="" height="150px" width="300px">
+            </div>
+            <div id="middlelogo">
+                <img src="middle-logo.png" alt="" height="100px" width="200px">
+            </div>
+            
+            <div id="second">
+                <span style="color: black">Расчетно графическая</span> <span style="color: darkred;">работа</span>
+            </div>
+
+        </div>
+    </header>
+    <main>
+            <div class="zagolovok">
+                Обменник валют
+            </div>
+            <div class="exchange-main">
+                <div id="brlrubmain" style="display: flex;">
+                    <select id="rubbrl">
+                        <option>RUB</option>
+                        <option>BRL</option>
+                    </select>
+                    <div id="rubbrl2div">
+                        <select id="rubbrl2">
+                            <option>BRL</option>
+                            <option>RUB</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="number" id="input" min="1" value="0">
+                <button id="go" onclick="getinfo()">Выполнить</button>
+                <div id="output">---</div>
+            </div>
+            <img src="next.png" style="position: absolute; left: 920px; top: 380px;
+            width: 70px; height: auto; opacity: 0.3;">
+            
+    </main>
+    <footer  style="display: flex; justify-content: center; align-items: center;">
+        <div id="menu" onmousemove="change()" onmouseleave="outchange()">
+            <img title="Информация о компании" id="logos" onclick="link1()" src="Company.png" alt="Информация о компании">
+            <img title="Новости" id="logos1" onclick="link2()" src="news.png" alt="Новости">
+            <img title="Курс" id='logos2' onclick="link3()" src="transfer.png" alt="Курс">
+            <img title="Контактные данные" id='logos3' onclick="link4()" src="map.png" alt="Контактные данные">
+            <img title="Видео" id='logos4' onclick="link5()" src="video.png" alt="Видео">
+            </div>
+        
+    </footer>
+
+</body>
+
+</html>

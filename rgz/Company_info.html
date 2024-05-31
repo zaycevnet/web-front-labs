@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>РГЗ</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function change(){ //при наведении
+            let menu = document.getElementById('menu'); //объявление переменной menu и присваивание ей идентификатора menu
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+            
+            logos.style.width = '70px' //ширина каждого пункта меню
+            logos1.style.width = '70px'
+            logos2.style.width = '70px'
+            logos3.style.width = '70px'
+            logos4.style.width = '70px'
+
+            menu.style.width = '480px' //длина общего меню
+            menu.style.height = '100px' //высота
+        }
+        function outchange(){ //в обычном состоянии
+            let menu = document.getElementById('menu');
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+
+
+            logos.style.width = '40px'
+            logos1.style.width = '40px'
+            logos2.style.width = '40px'
+            logos3.style.width = '40px'
+            logos4.style.width = '40px'
+            
+            menu.style.width = '260px'
+            menu.style.height = '60px'
+        }
+
+
+        function link1(){
+            window.open("Company_info.html",  "_blank"); //через новую вкладку, бланк - наверное правильный синтаксис
+        }
+        function link2(){
+            window.open("News.html",  "_blank");
+        }
+        function link3(){
+            window.open("Exchange.html",  "_blank");
+        }
+        function link4(){
+            window.open("Contact.html",  "_blank");
+        }
+        function link5(){
+            window.open("Video.html",  "_blank");
+        }
+    </script>
+    <style>
+        .zagolovok{
+            font-size: 70px;
+            color: #202d4f;
+            font-family: 'PlayfairDisplay', Georgia, serif; /* оригинальный шрифт */
+            margin-left: 200px;/* левый внешний отступ */
+            margin-top: 30px;/* верхний внешний отступ */
+            font-weight: bold;/* жирность  */
+            margin-bottom: 40px; /* нижний внешний отступ */
+        }
+
+        #first-text{ 
+            margin-left: 200px;
+            width: 780px;
+            height: 50px;
+            font-size: 24px;
+            font-family: 'Fira Sans', Tahoma, sans-serif;
+            color: #202d4f;
+           line-height: 1.8; /*межстрочный отступ */
+            text-align: justify;/* по ширине */
+            text-indent: 40px; /* красная строка */
+        }
+        #second-text{
+            margin-left: 900px; /* левый внешний отступ */
+            width: 800px;
+            height: 350px;
+            font-size: 24px;
+            font-family: 'Fira Sans', Tahoma, sans-serif;
+            color: #202d4f;
+            line-height: 1.8; /*межстрочный отступ */
+            text-align: justify; /*выравнивает текст по ширине */
+            text-indent: 40px;
+            margin-top: 550px; /* верхний внешний отступ */
+        }
+        #therd-text{
+            margin-left: 200px;
+            width: 800px;
+            height: 350px;
+            font-size: 24px;
+            font-family: 'Fira Sans', Tahoma, sans-serif;
+            color: #202d4f;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 40px;
+            margin-top: 400px;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="mainheader">
+            <div id="first">
+                <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/logo.svg" alt="«Росгосстрах-Жизнь»" height="150px" width="300px">
+            </div>
+            <div id="middlelogo">
+                <img src="middle-logo.png" alt="орел по середине" height="100px" width="200px">
+            </div>
+            <!-- Тег <span> — строчный элемент, который используется для стилизации части текста. -->
+            <div id="second">
+                <span style="color: black">Расчетно графическая</span> <span style="color: darkred;">работа</span>
+            </div>
+
+        </div>
+    </header>
+    <main>
+            <div class="zagolovok">
+                Информация<br> о компании
+            </div>
+            <div>
+                <div id="first-text">
+                    <b>«Росгосстрах Жизнь»</b> (до конца 2018 года — «ЭРГО Жизнь») — российская компания по страхованию жизни. <i>Номер в ЕГРССД — 3879,
+                    лицензии № СЛ 3879</i> (на добровольное личное страхование) и № СЖ 3879 (на добровольное страхование жизни) выданы Банком России 28 апреля 2017 года.
+                    Приобретена в конце 2018 года у немецкого страхового концерна <a class="link" href="https://en.wikipedia.org/wiki/Ergo_Group">Ergo Group</a> как <b>«Эрго Жизнь»</b>, 
+                    в марте 2019 переименована в <b>«Росгосстрах Жизнь»</b>.
+                    Опирается на сеть из 24 тысяч страховых агентов по всей стране.
+                </div> <!-- есть его положение будет рассчитываться относительно ближайшего предка с относительным позиционированием или относительно окна браузера -->
+                <div style="margin-left: 1000px;  position: absolute; top: 97px;"> 
+                    <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/man-alt.png" alt="" > <!-- альтернативный текст пустой -->
+                </div>
+                <div style="margin-left: 300px;  position: absolute; top: 900px;">
+                    <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/brand.png" alt="" >
+                </div>
+                <div id="second-text">
+                    Страхование жизни активно развивалось в организации, которая являлась предшественником <b>«Росгосстраха»</b> - в Госстрах СССР.
+                    При этом охват населения таким страхованием был заметно выше, чем современные показатели. В 1990-м году, непосредственно перед ликвидацией Госстраха СССР,
+                    в Советском Союзе действовало более 85 млн договоров страхования жизни, договоры накопительного страхования жизни были примерно у 70 % работающих на производстве.
+                    В значительной степени такому широкому распространению страхования жизни в <i>СССР</i> и в <i>РСФСР</i> способствовало активное внедрение в 1930-х годах коллективного страхования жизни.
+                    Каждому застрахованному по такой программе выдавалось страховое свидетельство (аналог страхового полиса), в которое ежемесячно наклеивались специальные страховые марки на
+                    сумму уплаченных страховых взносов.
+                </div>
+                <div style="margin-left: 1100px;  position: absolute; top: 1750px;">
+                    <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/diagram-5.png" alt="">
+                </div>
+                <div id="therd-text">
+                    После ликвидации Госстраха СССР в России его полисы были переданы на обслуживание в <b>«Росгосстрах»</b>, который ещё много лет расплачивался по этим полисам с их держателями.
+                    «Росгосстрах» развивал собственное страхование жизни, однако в 2003 году совмещение в одной страховой организации личных видов страхования, включая страхование жизни и 
+                    имущественных видов стало невозможным в силу изменения законодательства. В 2004 году бывшими владельцами АО  «Росгосстрах» была создана дочерняя компания по страхованию жизни
+                    с похожим названием — <b>«Росгосстрах-Жизнь»</b> (часто — «РГС-Жизнь»). Страхование жизни в группе «Росгосстрах» до её реорганизации в 2017—2019 годах развивалось весьма
+                    успешно — росли сборы страховых премий, группа «Росгосстрах» занимала лидирующие позиции в сегменте страхования жизни. В 2015 году компания стала второй (после <a class='link' href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B1%D0%B5%D1%80%D0%B1%D0%B0%D0%BD%D0%BA_%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8">«Сбербанк
+                    страхование жизни»</a>) компанией по страхованию жизни, вошедшей в Топ-10 страховых компаний РФ. <i>Три года (2015—2017) занимала в этом списке 9—10 места</i>, а в 
+                    списке компаний по страхованию жизни все три года стабильно находилась на второй строчке.
+                </div>
+            </div>
+
+            <!-- flex; делает все дочерние элементы резиновыми — flex , а не инлайновыми или блочными -->
+    </main>
+    <footer  style="display: flex; justify-content: center; align-items: center;">
+        <div id="menu" onmousemove="change()" onmouseleave="outchange()"> <!-- двигается тут - первое, уходит - второе -->
+            <img title="Информация о компании" id="logos" onclick="link1()" src="Company.png" alt="Информация о компании">
+            <img title="Новости" id="logos1" onclick="link2()" src="news.png" alt="Новости">
+            <img title="Курс" id='logos2' onclick="link3()" src="transfer.png" alt="Курс">
+            <img title="Контактные данные" id='logos3' onclick="link4()" src="map.png" alt="Контактные данные">
+            <img title="Видео" id='logos4' onclick="link5()" src="video.png" alt="Видео">
+        </div>
+        
+    </footer>
+
+</body>
+
+</html>

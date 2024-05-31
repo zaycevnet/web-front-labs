@@ -1,0 +1,86 @@
+body{
+   
+    background: linear-gradient(to top, white,rgb(96, 194, 224)) fixed;
+}
+
+
+.mainheader{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 80px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+}
+.link{
+    font-size: 24px;
+    font-family: 'Fira Sans', Tahoma, sans-serif;
+    color: #202d4f;
+    text-align: justify;
+    line-height: 1.8;
+    transition:  0.3s ease;
+
+}
+.link:hover{
+    color: #3c64c9;
+}
+
+
+#logos{
+    width: 40px;
+    height: auto;
+    left: 700px;
+    bottom: 0px;
+    cursor: pointer;
+    transition:  0.5s ease;
+}
+    
+
+#logos1, #logos2, #logos3, #logos4{
+    width: 40px;
+    height: auto;
+    left: 700px;
+    bottom: 0px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition:  0.5s ease;
+}
+
+
+
+#menu{
+    border: 1px solid black;
+    position: fixed;
+    width: 260px;
+    height: 60px;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    color: rgb(15, 15, 65);
+    font-size: 30px;
+    font-family: 'Fira Sans', Tahoma, sans-serif;
+    transition:  0.5s ease;
+    background-color: rgb(201, 230, 225);
+
+}
+
+#first{
+    margin-left: 30px;
+}
+
+#middlelogo{
+    margin-left: 330px;
+}
+
+#second{
+    margin-left: 200px;
+    font-family: Impact;
+    font-size: 32px;
+    opacity: 0.65;
+    
+}

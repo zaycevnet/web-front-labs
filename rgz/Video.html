@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>РГЗ</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function change(){
+            let menu = document.getElementById('menu');
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+            
+            logos.style.width = '70px'
+            logos1.style.width = '70px'
+            logos2.style.width = '70px'
+            logos3.style.width = '70px'
+            logos4.style.width = '70px'
+
+            menu.style.width = '480px'
+            menu.style.height = '100px'
+           
+        }
+        function outchange(){
+            let menu = document.getElementById('menu');
+            let logos = document.getElementById('logos');
+            let logos1 = document.getElementById('logos1')
+            let logos2 = document.getElementById('logos2')
+            let logos3 = document.getElementById('logos3')
+            let logos4 = document.getElementById('logos4')
+
+
+            logos.style.width = '40px'
+            logos1.style.width = '40px'
+            logos2.style.width = '40px'
+            logos3.style.width = '40px'
+            logos4.style.width = '40px'
+            
+            
+
+            menu.style.width = '260px'
+            menu.style.height = '60px'
+           
+
+        }
+
+
+
+        function link1(){
+            window.open("Company_info.html", "_blank");
+        }
+        function link2(){
+            window.open("News.html", "_blank");
+        }
+        function link3(){
+            window.open("Exchange.html", "_blank");
+        }
+        function link4(){
+            window.open("Contact.html", "_blank");
+        }
+        function link5(){
+            window.open("Video.html", "_blank");
+        }
+
+        
+
+
+
+
+    </script>
+    <style>
+        .zagolovok{
+            font-size: 70px;
+            color: #202d4f;
+            font-family: 'PlayfairDisplay', Georgia, serif;
+            margin-left: 200px;
+            margin-top: 30px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+             
+
+       
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="mainheader">
+            <div id="first">
+                <img src="https://rgsl.ru/local/templates/extyl/markup/_html/assets/img/logo.svg" alt="" height="150px" width="300px">
+            </div>
+            <div id="middlelogo">
+                <img src="middle-logo.png" alt="" height="100px" width="200px">
+            </div>
+            
+            <div id="second">
+                <span style="color: black">Расчетно графическая</span> <span style="color: darkred;">работа</span>
+            </div>
+
+        </div>
+    </header>
+    <main>
+            <div class="zagolovok">
+                Видео о компании
+            </div>
+            <div style="margin-left: 500px;"> //с ютуба
+                <iframe width="900" height='600' src="https://www.youtube.com/embed/SU2PkXfFV0w?si=nBGurngE6Nw0mSZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+            
+    </main>
+    <footer  style="display: flex; justify-content: center; align-items: center;">
+        <div id="menu" onmousemove="change()" onmouseleave="outchange()">
+            <img title="Информация о компании" id="logos" onclick="link1()" src="Company.png" alt="Информация о компании">
+            <img title="Новости" id="logos1" onclick="link2()" src="news.png" alt="Новости">
+            <img title="Курс" id='logos2' onclick="link3()" src="transfer.png" alt="Курс">
+            <img title="Контактные данные" id='logos3' onclick="link4()" src="map.png" alt="Контактные данные">
+            <img title="Видео" id='logos4' onclick="link5()" src="video.png" alt="Видео">
+            </div>
+        
+    </footer>
+
+</body>
+
+</html>
